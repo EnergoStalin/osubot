@@ -2,8 +2,21 @@ version: '3.9'
 
 services:
   osubot:
-    image: github.com/energostalin/osubot
-    build: .
+    image: ghcr.io/energostalin/osubot:latest
+    build:
+      context: .
+      cache_from:
+        - ghcr.io/energostalin/osubot:latest
+      tags:
+        - ghcr.io/energostalin/osubot:${RELEASE_VERSION-0}
+        - ghcr.io/energostalin/osubot:latest
+      x-bake:
+        platforms:
+          - linux/amd64
+          - linux/arm64
     env_file: .env
     volumes:
       - ./store:/store
+    labels:
+      # watchtower
+      com.centurylinklabs.watchtower.enable: true
