@@ -1,4 +1,4 @@
 .vscode
-store
+db
 .env
 docker.compose.override.yml
