@@ -1,5 +1,7 @@
 github.com/EnergoStalin/pixiv v0.0.0-20230717093852-8a0d5f421e1f h1:MimQAT0JZ83woU0H2jSEmCPEIWNRI47LAp1wyVBrqQ4=
 github.com/EnergoStalin/pixiv v0.0.0-20230717093852-8a0d5f421e1f/go.mod h1:3z/ATXJgFYjO+JXQpQ9TGr8po+E5yqZG9Bl06STUoww=
+github.com/EnergoStalin/pixiv v0.0.0-20230717232555-d4c947b5ca40 h1:x7N++pZrjtj194VDbmJdk2eYed30iMZ0CwyNTZHZZDI=
+github.com/EnergoStalin/pixiv v0.0.0-20230717232555-d4c947b5ca40/go.mod h1:3z/ATXJgFYjO+JXQpQ9TGr8po+E5yqZG9Bl06STUoww=
 github.com/bwmarrin/discordgo v0.27.1 h1:ib9AIc/dom1E/fSIulrBwnez0CToJE113ZGt4HoliGY=
 github.com/bwmarrin/discordgo v0.27.1/go.mod h1:NJZpH+1AfhIcyQsPeuBKsUtYrRnjkyu0kIVMCHkZtRY=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=

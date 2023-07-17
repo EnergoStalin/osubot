@@ -3,7 +3,7 @@ module github.com/EnergoStalin/osubot
 go 1.19
 
 require (
-	github.com/EnergoStalin/pixiv v0.0.0-20230717093852-8a0d5f421e1f
+	github.com/EnergoStalin/pixiv v0.0.0-20230717232555-d4c947b5ca40
 	github.com/bwmarrin/discordgo v0.27.1
 	github.com/go-resty/resty/v2 v2.7.0
 	go.devnw.com/structs v1.0.0
