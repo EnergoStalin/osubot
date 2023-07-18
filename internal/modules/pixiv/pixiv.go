@@ -4,12 +4,13 @@ import (
 	"fmt"
 	"math/rand"
 	"strconv"
+	"sync"
 	"time"
 
 	"github.com/EnergoStalin/osubot/internal/modules"
-	"github.com/EnergoStalin/pixiv"
 	"github.com/bwmarrin/discordgo"
 	"github.com/codingconcepts/env"
+	"github.com/everpcpc/pixiv"
 )
 
 type PixivModule struct {
@@ -17,6 +18,7 @@ type PixivModule struct {
 	acc *pixiv.Account
 
 	id uint64
+	mu sync.Mutex
 
 	c struct {
 		Token        string `env:"PIXIV_TOKEN" required:"true"`
@@ -62,7 +64,9 @@ func (p *PixivModule) Pixiv(s *discordgo.Session, i *discordgo.InteractionCreate
 		Type: discordgo.InteractionResponseDeferredChannelMessageWithSource,
 	})
 
+	p.mu.Lock()
 	ia, err := fetchAll(p.app, p.id)
+	p.mu.Unlock()
 
 	if err != nil {
 		msg := err.Error()

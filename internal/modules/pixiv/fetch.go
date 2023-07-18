@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/EnergoStalin/osubot/internal/services"
-	"github.com/EnergoStalin/pixiv"
+	"github.com/everpcpc/pixiv"
 )
 
 func fetchAll(app *pixiv.AppPixivAPI, id uint64) ([]pixiv.Illust, error) {
