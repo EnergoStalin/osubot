@@ -6,8 +6,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/EnergoStalin/osubot/internal/discord/commands"
-	"github.com/EnergoStalin/osubot/internal/discord/handlers"
+	"github.com/EnergoStalin/osubot/internal/modules"
+	"github.com/EnergoStalin/osubot/internal/modules/gatari"
+	"github.com/EnergoStalin/osubot/internal/modules/pixiv"
 	"github.com/bwmarrin/discordgo"
 )
 
@@ -18,10 +19,13 @@ func Run() (err error) {
 		return
 	}
 
-	dg.AddHandler(handlers.MessageCreate)
+	mm := modules.NewModuleManager()
+
+	dg.AddHandler(mm.Invoke)
 	dg.Identify.Intents = discordgo.IntentsGuildMessages | discordgo.IntentMessageContent
 
-	commands.RegisterCommands()
+	mm.RegiesterModule(&pixiv.PixivModule{})
+	mm.RegiesterModule(&gatari.GatariModule{})
 
 	err = dg.Open()
 	if err != nil {
@@ -29,10 +33,15 @@ func Run() (err error) {
 		return
 	}
 
+	mm.RegisterCommands(dg)
+
 	fmt.Println("Bot is now running.")
 	sc := make(chan os.Signal, 1)
 	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
 	<-sc
 
+	mm.UnRegisterAllCommands(dg)
+
+	dg.Close()
 	return
 }

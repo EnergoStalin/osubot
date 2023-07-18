@@ -5,7 +5,9 @@ go 1.19
 require (
 	github.com/EnergoStalin/pixiv v0.0.0-20230717232555-d4c947b5ca40
 	github.com/bwmarrin/discordgo v0.27.1
+	github.com/codingconcepts/env v0.0.0-20200821220118-a8fbf8d84482
 	github.com/go-resty/resty/v2 v2.7.0
+	github.com/sirupsen/logrus v1.9.3
 	go.devnw.com/structs v1.0.0
 )
 
